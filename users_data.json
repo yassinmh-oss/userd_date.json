@@ -1,32 +1,5 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-  <meta charset="UTF-8" />
-  <title>بيانات المستخدمين</title>
-</head>
-<body>
-  <h1>قائمة المستخدمين</h1>
-  <ul id="user-list">جاري تحميل البيانات...</ul>
-
-  <script>
-    async function fetchData() {
-      try {
-        const response = await fetch('users_data.json');
-        if (!response.ok) throw new Error('خطأ في تحميل الملف');
-        const data = await response.json();
-        const userList = document.getElementById('user-list');
-        userList.innerHTML = '';
-        data.forEach(user => {
-          const li = document.createElement('li');
-          li.textContent = `الاسم: ${user.name}, العمر: ${user.age}`;
-          userList.appendChild(li);
-        });
-      } catch (e) {
-        document.getElementById('user-list').textContent = 'فشل تحميل البيانات!';
-        console.error(e);
-      }
-    }
-    fetchData();
-  </script>
-</body>
-</html>
+[
+  {"id": 1, "name": "أحمد", "age": 25},
+  {"id": 2, "name": "سارة", "age": 30},
+  {"id": 3, "name": "محمد", "age": 22}
+]
